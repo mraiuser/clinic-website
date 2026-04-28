@@ -18,6 +18,7 @@ const conditionCategories = [
     title: "Spine & Nerve",
     icon: Stethoscope,
     items: [
+      "Headaches", "Cervicogenic Headaches", 
       "Neck pain", "Back pain", "Slipped Disc", "Sciatica", 
       "Spinal Stenosis", "Cervical Spondylosis", "Lumbar Spondylosis", 
       "Scoliosis", "Disc Prolapse", "Nerve Compression", 

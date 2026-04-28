@@ -99,58 +99,72 @@ export default function Header({ onBookClick }: { onBookClick?: () => void }) {
       {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={toggleMenu}
-              className="fixed inset-0 bg-black/50 z-[70] md:hidden"
-            />
-            <motion.div 
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white z-[80] shadow-2xl md:hidden flex flex-col p-8"
-            >
-              <div className="flex justify-between items-center mb-12">
-                <div className="text-xl font-extrabold tracking-tight flex items-center">
-                  <span className="text-brand-navy">Spine &</span>
-                  <span className="text-brand-teal ml-2">Sports Hub</span>
-                </div>
-                <button onClick={toggleMenu} className="text-slate-500"><X size={28} /></button>
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 bg-white z-[100] flex flex-col p-8 md:hidden overflow-hidden"
+          >
+            <div className="flex justify-between items-center mb-16">
+              <div className="text-2xl font-extrabold tracking-tight flex items-center">
+                <span className="text-brand-navy">Spine &</span>
+                <span className="text-brand-teal ml-2">Sports Hub</span>
               </div>
-
-              <div className="flex flex-col gap-6 mb-12">
-                {navLinks.map((link) => {
-                  const id = link === "Home" ? "home" : link === "About" ? "about" : link === "Our Services" ? "services" : link === "Treatments" ? "treatments" : link === "Contact" ? "contact" : "";
-                  const href = `#${id}`;
-                  return (
-                    <a 
-                      key={link}
-                      href={href}
-                      className={`text-2xl font-bold transition-colors ${activeLink === link ? "text-brand-teal" : "text-brand-navy hover:text-brand-teal"}`}
-                      onClick={() => {
-                        setActiveLink(link);
-                        toggleMenu();
-                      }}
-                    >
-                      {link}
-                    </a>
-                  );
-                })}
-              </div>
-
               <button 
-                onClick={(e) => { e.preventDefault(); toggleMenu(); if (onBookClick) onBookClick(); }}
-                className="bg-brand-teal text-white w-full py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-3 mt-auto min-h-[48px]"
+                onClick={toggleMenu} 
+                className="text-brand-navy p-2 hover:bg-slate-50 rounded-full transition-colors"
+                aria-label="Close Menu"
               >
-                <Phone size={20} />
-                Book Online
+                <X size={32} />
               </button>
-            </motion.div>
-          </>
+            </div>
+
+            <div className="flex-1 flex flex-col items-center justify-center gap-10">
+              {navLinks.map((link, idx) => {
+                const id = link === "Home" ? "home" : link === "About" ? "about" : link === "Our Services" ? "services" : link === "Treatments" ? "treatments" : link === "Contact" ? "contact" : "";
+                const href = `#${id}`;
+                return (
+                  <motion.a 
+                    key={link}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + (idx * 0.05) }}
+                    href={href}
+                    className={`text-3xl font-extrabold transition-all tracking-tight ${activeLink === link ? "text-brand-teal" : "text-brand-navy hover:text-brand-teal"}`}
+                    onClick={() => {
+                      setActiveLink(link);
+                      toggleMenu();
+                    }}
+                  >
+                    {link}
+                  </motion.a>
+                );
+              })}
+            </div>
+
+            <div className="mt-auto space-y-6">
+              <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                onClick={(e) => { e.preventDefault(); toggleMenu(); if (onBookClick) onBookClick(); }}
+                className="bg-brand-teal text-white w-full py-5 rounded-2xl font-bold text-xl shadow-xl shadow-brand-teal/20 flex items-center justify-center gap-3"
+              >
+                <Phone size={24} />
+                Book Online
+              </motion.button>
+              
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="text-center"
+              >
+                <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Open 7 Days • 9 AM - 9 PM</p>
+              </motion.div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.header>

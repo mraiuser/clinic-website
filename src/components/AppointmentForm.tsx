@@ -15,7 +15,7 @@ export default function AppointmentForm() {
               <div className="bg-brand-teal/10 rounded-full p-1.5 flex shrink-0">
                 <span className="material-symbols-outlined text-brand-teal text-xl">check</span>
               </div>
-              <span className="font-semibold text-brand-navy text-sm md:text-base">24 Hour Service Available</span>
+              <span className="font-semibold text-brand-navy text-sm md:text-base">Open 7 Days: 9 AM - 9 PM</span>
             </li>
             <li className="flex items-center gap-4">
               <div className="bg-brand-teal/10 rounded-full p-1.5 flex shrink-0">

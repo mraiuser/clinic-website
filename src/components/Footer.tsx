@@ -66,8 +66,14 @@ export default function Footer({ onBookClick }: { onBookClick: () => void }) {
           <div>
             <h4 className="text-brand-navy font-bold mb-6">Clinic Hours</h4>
             <ul className="space-y-3 text-sm text-slate-500">
-              <li className="flex justify-between"><span>Mon - Sat:</span> <span className="font-bold text-brand-navy">10:00 AM - 8:00 PM</span></li>
-              <li className="flex justify-between"><span>Sunday:</span> <span className="font-bold text-brand-teal">By Appointment</span></li>
+              <li className="flex justify-between items-center">
+                <span>Mon - Sun:</span> 
+                <span className="font-bold text-brand-navy">9:00 AM - 9:00 PM</span>
+              </li>
+              <li className="flex items-center gap-2 mt-2">
+                <div className="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></div>
+                <span className="font-bold text-brand-teal text-[10px] uppercase tracking-wider">Open 7 Days a Week</span>
+              </li>
               <li className="pt-4 border-t border-slate-200 mt-4 text-[10px] uppercase font-bold tracking-widest text-slate-400">
                 Professional Clinical Authority
               </li>
