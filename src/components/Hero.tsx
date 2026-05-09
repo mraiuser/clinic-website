@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 // @ts-ignore
 import heroImg from '../assets/hero-hd.jpg';
 
 export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
-  // @ts-ignore
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
@@ -12,8 +11,7 @@ export default function Hero({ onBookClick }: { onBookClick?: () => void }) {
     }
   };
 
-  // @ts-ignore
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { 
   CheckCircle, 
   ChevronDown, 
@@ -94,7 +94,7 @@ const advancedModalities = [
   "Cupping"
 ];
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -104,7 +104,7 @@ const staggerContainer = {
   }
 };
 
-const fadeUpItem = {
+const fadeUpItem: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
 };

@@ -22,10 +22,13 @@ export default function Header({ onBookClick }: { onBookClick?: () => void }) {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-xl md:text-2xl font-extrabold tracking-tight flex items-center"
+            className="flex items-center gap-3"
           >
-            <span className="text-brand-navy">Spine &</span>
-            <span className="text-brand-teal ml-2">Sports Hub</span>
+            <img src="/logo.png" alt="Logo" className="h-10 md:h-12 w-auto" />
+            <div className="flex flex-col">
+              <span className="text-brand-navy font-extrabold text-lg md:text-xl leading-none">Spine &</span>
+              <span className="text-brand-teal font-extrabold text-lg md:text-xl leading-none">Sports Hub</span>
+            </div>
           </motion.div>
           
           {/* Desktop Navigation */}
@@ -109,10 +112,13 @@ export default function Header({ onBookClick }: { onBookClick?: () => void }) {
             className="fixed inset-0 bg-white z-[100] flex flex-col p-8 md:hidden"
           >
             <div className="flex justify-between items-center mb-12">
-              <div className="text-2xl font-extrabold tracking-tight flex items-center">
-                <span className="text-brand-navy">Spine &</span>
-                <span className="text-brand-teal ml-2">Sports Hub</span>
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+              <div className="flex flex-col">
+                <span className="text-brand-navy font-extrabold text-lg leading-none">Spine &</span>
+                <span className="text-brand-teal font-extrabold text-lg leading-none">Sports Hub</span>
               </div>
+            </div>
               <button 
                 onClick={toggleMenu} 
                 className="text-brand-navy p-2 hover:bg-slate-50 rounded-full transition-colors"
